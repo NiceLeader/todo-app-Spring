@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/todo-app/src/main/java/db/migration/V2__insert_example_todo.java" dialect="H2" />
     <file url="file://$PROJECT_DIR$/todo-app/src/main/resources/db/migration/V1__init_tasks_table.sql" dialect="H2" />
+    <file url="file://$PROJECT_DIR$/todo-app/src/main/resources/db/migration/V3___add_deadline_column.sql" dialect="H2" />
   </component>
 </project>
