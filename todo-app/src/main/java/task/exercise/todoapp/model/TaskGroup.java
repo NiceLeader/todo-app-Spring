@@ -6,44 +6,39 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "task_groups")
 @Getter
 @Setter
-public class Task {
+public class TaskGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private long id;
-    @NotBlank(message = "Task's description must not be null or empty")
+    @NotBlank(message = "Task group's description must not be null or empty")
     private String description;
     private boolean done;
-    private LocalDateTime deadline;
-
 //    @Embedded
 //    private Audit audit = new Audit();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+    private Set<Task> tasks;
     @ManyToOne
-    @JoinColumn(name = "task_group_id")
-    private TaskGroup group;
+    @JoinColumn(name = "project_id")
+    private Project project;
 
-    public void updateFrom(final Task source) {
-        description = source.description;
-        done = source.done;
-        deadline = source.deadline;
-        group = source.group;
-    }
-
-
-    public Task(Long id, String description, boolean done) {
+    public TaskGroup(Long id, String description, boolean done) {
         this.id = id;
         this.description = description;
         this.done = done;
     }
 
-    public Task() {
+    public TaskGroup() {
     }
+
 
 
 }

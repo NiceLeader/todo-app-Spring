@@ -17,6 +17,7 @@ public interface TaskRepository {
 
     boolean existsById(Long id);
 
+    boolean existsByDoneIsFalseAndGroup_Id(Long groupId);
     List<Task> findByDone(@Param("state") boolean done);
 
     Task save(Task entity);
