@@ -24,6 +24,7 @@ public class Task {
 //    @Embedded
 //    private Audit audit = new Audit();
 
+
     @ManyToOne
     @JoinColumn(name = "task_group_id")
     private TaskGroup group;
@@ -43,6 +44,13 @@ public class Task {
     }
 
     public Task() {
+    }
+
+    public Task(String description, LocalDateTime deadline) {
+        this.description = description;
+        this.deadline = deadline;
+
+
     }
 
 
