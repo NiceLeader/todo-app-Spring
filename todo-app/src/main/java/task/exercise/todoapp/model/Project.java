@@ -18,6 +18,8 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
+    public Project() {
+    }
 
     @NotBlank(message = "Project's description must not empty")
     private String description;
