@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class TaskGroupService {
     private TaskGroupRepository repository;
     private TaskRepository taskRepository;
-    private TaskGroupService(final TaskGroupRepository repository, final TaskRepository taskRepository) {
+    public TaskGroupService(final TaskGroupRepository repository, final TaskRepository taskRepository) {
         this.repository = repository;
         this.taskRepository = taskRepository;
     }
