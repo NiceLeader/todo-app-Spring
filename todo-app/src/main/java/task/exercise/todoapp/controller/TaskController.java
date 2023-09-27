@@ -25,7 +25,7 @@ public class TaskController {
     }
 
     @GetMapping(path = "/tasks", params = {"!sort", "!page", "!size"})
-    ResponseEntity<List<Task>> readAllTasks() {
+     ResponseEntity<List<Task>> readAllTasks() {
         logger.warn("Exposing all the tasks!");
         return ResponseEntity.ok(repository.findAll());
     }
@@ -33,7 +33,9 @@ public class TaskController {
     @GetMapping(path = "/tasks")
     ResponseEntity<?> readAllTasks(Pageable page) {
         logger.warn("Custom pageable");
-        return ResponseEntity.ok(repository.findAll(page).getContent());
+        return ResponseEntity.ok(repository
+                .findAll(page)
+                .getContent());
     }
 
     @PutMapping(path = "/tasks/{id}")

@@ -41,6 +41,7 @@ public class Task {
         this.id = id;
         this.description = description;
         this.done = done;
+
     }
 
     public Task() {
@@ -49,7 +50,6 @@ public class Task {
     public Task(String description, LocalDateTime deadline) {
         this.description = description;
         this.deadline = deadline;
-
 
     }
 
